@@ -1,2 +1,5 @@
 # Proyek_Sistem Informasi
-A solution (solved/not) code from many competition problem
+
+note:
+To create another laravel project, use this
+composer create-project laravel/laravel project_name 6.0
