@@ -1,16 +1,454 @@
-<div class="container text-center" style="margin-top:20px">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <form method="post">
-                <h1 class="h3 mb-3 font-weight-normal">Masukkan Identitas Anda</h1>
-                <div class="form-group">
-                    <input type="text" name="id-pengunjung" class="form-control" placeholder="NIM"  maxlength="8" required autofocus>
-                </div>
-                    <div class="form-group">
-                        <button class="btn btn-sm btn-primary btn-block" type="submit">Simpan</button>
+@extends('layouts.main')
+@section('title', 'RM. Sinar Minang Balige')
+
+@section('content')
+	<div id="slides" class="cover-slides">
+		<ul class="slides-container">
+			<li class="text-left">
+				<img src="{{ asset('image/slider-01.jpg') }}"> 
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20"><strong>Welcome To Rumah Makan <br> Sinar Minang Balige</strong></h1>
+							<p class="m-b-40">Anda puas beritahu teman, Anda tidak puas beritahu kami<br> 
+							</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.html">Reservation</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-left">
+				<img src="{{ asset('image/slider-02.jpg') }}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20"><strong>Welcome To Rumah Makan  <br> Sinar Minang Balige</strong></h1>
+							<p class="m-b-40">Anda puas beritahu teman, Anda tidak puas beritahu kami  <br> 
+							</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-left">
+				<img src="{{ asset('image/slider-03.jpg') }}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20"><strong>Welcome To Rumah Makan<br>  Sinar Minang Balige</strong></h1>
+							<p class="m-b-40">Anda puas beritahu teman, Anda tidak puas beritahu kami <br> 
+							</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="slides-navigation">
+			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<!-- End slides -->
+	
+	
+	
+	<!-- Start QT -->
+	<div class="qt-box qt-background">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 ml-auto mr-auto text-center">
+					<p class="lead ">
+						Nikmati dan Rasakan Hidangan Khas Padang di 
+					</p>
+					<span class="lead">Rumah Makan Sinar Minang Balige</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End QT -->
+	
+	<!-- Start Menu -->
+	<div class="menu-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Our Special Menu</h2>
+						<p>Menu Promo Hari Ini</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row inner-menu-box">
+				<div class="col-3">
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">All</a>
+						<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Makanan</a>
+						<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Minuman</</a>
+						<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Kue</a>
+					</div>
+				</div>
+				
+				<div class="col-9">
+					<div class="tab-content" id="v-pills-tabContent">
+						<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 special-grid drinks">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-01.jpg') }}" class="img-fluid" alt="Image"  >
+										<div class="why-text">
+											<h4>Rendang</h4>
+											<p>Rating : 5,0</p>
+											<h5>Rp 35.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid drinks">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-02.jpg') }}" class="img-fluid" alt="Image" >
+										<div class="why-text">
+											<h4>Sate Padang</h4>
+											<p>Rating 4,9</p>
+											<h5> Rp 18.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid drinks">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-03.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Ayam Padar Padang</h4>
+											<p>Rating : 4,5</p>
+											<h5>Rp 23.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid lunch">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-04.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Jus Melon</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 15.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid lunch">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-05.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Creammy Cofee + White Wafle</h4>
+											<p>Rating : 4,8</p>
+											<h5> Rp 17.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid lunch">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-06.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Special Milk Tea</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 15.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid dinner">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-07.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Kue Lapis</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 3.500</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid dinner">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-08.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Kue Cucur </h4>
+											<p>Rating :b4,7</p>
+											<h5> Rp 4.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid dinner">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-09.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Puluik Manih</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 4.500</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 special-grid drinks">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-01.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Rendang</h4>
+											<p>Rating : 5,0</p>
+											<h5>Rp 35.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid drinks">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-02.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Sate Padang</h4>
+											<p>Rating 4,9</p>
+											<h5> Rp 18.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid drinks">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-03.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Ayam Padar Padang</h4>
+											<p>Rating : 4,5</p>
+											<h5>Rp 23.000</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 special-grid lunch">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-04.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+												<h4>Jus Melon</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 15.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid lunch">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-05.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Creammy Cofee + White Wafle</h4>
+											<p>Rating : 4,8</p>
+											<h5> Rp 17.000</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid lunch">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-06.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Special Milk Tea</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 15.000</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 special-grid dinner">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-07.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Kue Lapis</h4>
+											<p>Rating : 4,7</p>
+											<h5> Rp 3.500</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid dinner">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-08.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Special Dinner 2</h4>
+											<p>Sed id magna vitae eros sagittis euismod.</p>
+											<h5> $22.79</h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 special-grid dinner">
+									<div class="gallery-single fix">
+										<img src="{{ asset('image/img-09.jpg') }}" class="img-fluid" alt="Image">
+										<div class="why-text">
+											<h4>Kue Cucur </h4>
+											<p>Rating :b4,7</p>
+											<h5> Rp 4.000</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- End Menu -->
+	
+	<!-- Start Gallery -->
+	<div class="gallery-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Gallery</h2>
+						<p>Kenangan bersama Rumah Makan Sinar Minang Balige</p>
+					</div>
+				</div>
+			</div>
+			<div class="tz-gallery">
+				<div class="row">
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<a class="lightbox" href="{{ asset('image/gallery-img-01.jpg') }}">
+							<img class="img-fluid" src="{{ asset('image/gallery-img-01.jpg') }}" alt="Gallery image">
+						</a>
+					</div>
+					<div class="col-sm-6 col-md-4 col-lg-4">
+						<a class="lightbox" href="{{ asset('image/gallery-img-02.jpg') }}">
+							<img class="img-fluid" src="{{ asset('image/gallery-img-02.jpg') }}" alt="Gallery image">
+						</a>
+					</div>
+					<div class="col-sm-6 col-md-4 col-lg-4">
+						<a class="lightbox" href="{{ asset('image/gallery-img-03.jpg') }}">
+							<img class="img-fluid" src="{{ asset('image/gallery-img-03.jpg') }}" alt="Gallery image">
+						</a>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<a class="lightbox" href="{{ asset('image/gallery-img-04.jpg') }}">
+							<img class="img-fluid" src="{{ asset('image/gallery-img-04.jpg') }}" alt="Gallery image">
+						</a>
+					</div>
+					<div class="col-sm-6 col-md-4 col-lg-4">
+						<a class="lightbox" href="{{ asset('image/gallery-img-05.jpg') }}">
+							<img class="img-fluid" src="{{ asset('image/gallery-img-05.jpg') }}" alt="Gallery image">
+						</a>
+					</div> 
+					<div class="col-sm-6 col-md-4 col-lg-4">
+						<a class="lightbox" href="{{ asset('image/gallery-img-06.jpg') }}">
+							<img class="img-fluid" src="{{ asset('image/gallery-img-06.jpg') }}" alt="Gallery image">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Gallery -->
+	
+	<!-- Start Customer Reviews -->
+	<div class="customer-reviews-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Apa Kata Mereka ?</h2>
+						<p>Review dari Pengunjung</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 mr-auto ml-auto text-center">
+					<div id="reviews" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner mt-4">
+							<div class="carousel-item text-center active">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="{{ asset('image/quotations-button.png') }}" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Tripheni Simanjuntak</strong></h5>
+								<h6 class="text-dark m-0">Web Developer</h6>
+								<p class="m-0 pt-3"> Makanan disini sangan enak dan direkomendasikan, tempatnya juga nyaman disertai pelayanan yang memuaskan</p>
+							</div>
+							<div class="carousel-item text-center">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="{{ asset('image/quotations-button.png') }}" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Stella Sitinjak</strong></h5>
+								<h6 class="text-dark m-0">Full Stack</h6>
+								<p class="m-0 pt-3">Makanannya memang sangat khas padang dan juga tempatnya bagus</p>
+							</div>
+							<div class="carousel-item text-center">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="{{ asset('image/quotations-button.png') }}" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Yessi Pangaribuan</strong></h5>
+								<h6 class="text-dark m-0">Business Analyst</h6>
+								<p class="m-0 pt-3">Service sangat modern dan makanan disini sangat direkomendasikan dengan harga yang terjangkau</p>
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
+							<i class="fa fa-angle-left" aria-hidden="true"></i>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#reviews" role="button" data-slide="next">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+							<span class="sr-only">Next</span>
+						</a>
                     </div>
-                <input type="hidden" name="action" value="tell-name">
-            </form>
-        </div>
-    </div>
-</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Customer Reviews -->
+	
+	<!-- Start Contact info -->
+	<div class="contact-imfo-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 arrow-right">
+					<i class="fa fa-volume-control-phone"></i>
+					<div class="overflow-hidden">
+						<h4>Phone</h4>
+						<p class="lead">
+							081 2233 445 667
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4 arrow-right">
+					<i class="fa fa-envelope"></i>
+					<div class="overflow-hidden">
+						<h4>Email</h4>
+						<p class="lead">
+							Sinar_Minang@gmail.com
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<i class="fa fa-map-marker"></i>
+					<div class="overflow-hidden">
+						<h4>Location</h4>
+						<p class="lead">
+							Jl. Siborong Borong-Parapat No.2,
+							Sibola Hotangas,Balige
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection

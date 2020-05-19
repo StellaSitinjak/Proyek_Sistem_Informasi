@@ -2,38 +2,56 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use App\Customer;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Contracts\User as ProviderUser;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    public function index(){
+        if(!Session::get('login')){
+            return redirect('login')->with('alert','Kamu harus login dulu');
+        }
+        else{
+            return view('index');
+        }
+    }
 
-    use AuthenticatesUsers;
+    public function login(){
+        return view('auth.login');
+    }
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    public function loginPost(Request $request){
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+        $email = $request->email;
+        $password = $request->password;
+
+        $data = User::where('email',$email)->first();
+        $dataC = Customer::where('email',$email)->first();
+        if($data){ //apakah email tersebut ada atau tidak
+            if(Hash::check($password,$data->password)){
+                // $dataC->visited = 
+                Session::put('name',$dataC->nama);
+                Session::put('email',$data->email);
+                Session::put('login',TRUE);
+                return redirect('home');
+            }
+            else{
+                return redirect('login')->with('alert','Password atau Email, Salah !');
+            }
+        }
+        else{
+            return redirect('login')->with('alert','Password atau Email, Salah!');
+        }
+    }
+
+    public function logout(){
+        Session::flush();
+        return redirect('login')->with('alert','Kamu sudah logout');
     }
 }

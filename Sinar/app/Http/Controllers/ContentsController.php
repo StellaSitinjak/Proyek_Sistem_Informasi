@@ -9,6 +9,7 @@ class ContentsController extends Controller
 {
     function index(){
         $data = Content::get();
-        return $data;
+        return view('index');
+        // return $data;
     }
 }
