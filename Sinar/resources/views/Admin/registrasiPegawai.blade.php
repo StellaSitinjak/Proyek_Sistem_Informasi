@@ -1,27 +1,20 @@
 @extends('layouts.main')
 @section('title', 'Daftar Akun')
-@section('head', 'Rumah Makan Sinar Minang Balige')
 
 @section('content')
+<br><br><br><br>
 <div class="container" style="margin-top:20px">
-<br><br>
-    <div class="heading-title text-center">
-        <h2>Daftar Akun</h2>
-    </div>
+    <h2 class="text-center">Selamat Datang di Rumah Makan Sinar Minang Balige</h2>
     <div class="row">
         <div class="col-lg-12">
             <div class="col-md-10 offset-md-1">
-                <form action="{{ url('/registerPost') }}" method="POST">
+                <form action="{{ url('/postWorker') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="row mt-4">
                         <div class="col-md-6">
                         <div class="form-group">
                                 <label for="name"><b>Nama Lengkap</b></label>
                                 <input type="text" placeholder="Enter Name" name="name" id="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat"><b>Alamat</b></label>
-                                <textarea rows="3" placeholder="Enter Address" id="alamat" name="alamat" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="birthdate"><b>Birthdate</b></label>
@@ -33,12 +26,21 @@
                                 <input name="gender" value="L" id="gender" type="radio"> Laki-Laki
                             </div>
                             <div class="form-group">
+                                <label for="alamat"><b>Alamat</b></label>
+                                <textarea rows="3" placeholder="Enter Address" id="alamat" name="alamat" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
                                 <label for="phone"><b>no. Telepon</b></label>
                                 <input type="text" placeholder="Enter Phone Number" id="phone" name="phone" class="form-control" value="" maxlength="12" minlength="12">
                             </div>
                         </div>
 
                         <div class="col-md-6 border-left">
+                            <div class="form-group">
+                                <label for="position"><b>Posisi</b></label>
+                                <input name="position" value="Kasir" id="position" type="radio" checked> Kasir
+                                <input name="position" value="Inventory/Chef" id="position" type="radio"> Inventory/Chef
+                            </div>
                             <div class="form-group">
                                 <label for="email"><b>Email</b></label>
                                 <input type="text" placeholder="Enter Email" name="email" id="email" class="form-control" required>

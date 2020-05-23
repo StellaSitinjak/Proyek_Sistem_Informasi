@@ -1,12 +1,15 @@
 @extends('layouts.main')
 @section('title', 'Masuk Ke Akun')
+@section('head', 'Rumah Makan Sinar Minang Balige')
 
 @section('content')
 <div class="col-lg-12">
-<br><br><br><br>
+<br><br>
 <div class="container" style="margin-top:20px">
-    <h2 class="text-center">Selamat Datang di Rumah Makan Sinar Minang Balige</h2>
-    <hr>
+    <div class="heading-title text-center">
+        <h2>Masuk ke Akun</h2>
+        <!-- <p> Tentukan seleramu </p> -->
+    </div>
     <div class="row" align="center">
         <div class="col-md-10 offset-md-1">
             @if(\Session::has('alert'))

@@ -27,7 +27,6 @@ class LoginController extends Controller
     }
 
     public function loginPost(Request $request){
-
         $email = $request->email;
         $password = $request->password;
 
@@ -35,10 +34,12 @@ class LoginController extends Controller
         $dataC = Customer::where('email',$email)->first();
         if($data){ //apakah email tersebut ada atau tidak
             if(Hash::check($password,$data->password)){
-                // $dataC->visited = 
-                Session::put('name',$dataC->nama);
+                $dataC->visited = $dataC->visited++;
+                $dataC->save();
+                Session::put('nama',$dataC->nama);
                 Session::put('email',$data->email);
                 Session::put('login',TRUE);
+                Auth::login($dataC, true);
                 return redirect('home');
             }
             else{

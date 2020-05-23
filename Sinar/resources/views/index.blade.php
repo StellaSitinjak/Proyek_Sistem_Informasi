@@ -51,8 +51,6 @@
 	</div>
 	<!-- End slides -->
 	
-	
-	
 	<!-- Start QT -->
 	<div class="qt-box qt-background">
 		<div class="container">
@@ -81,234 +79,111 @@
 			</div>
 			
 			<div class="row inner-menu-box">
-				<div class="col-3">
-					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">All</a>
-						<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Makanan</a>
-						<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Minuman</</a>
-						<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Kue</a>
-					</div>
-				</div>
-				
-				<div class="col-9">
-					<div class="tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-							<div class="row">
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-01.jpg') }}" class="img-fluid" alt="Image"  >
-										<div class="why-text">
-											<h4>Rendang</h4>
-											<p>Rating : 5,0</p>
-											<h5>Rp 35.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-02.jpg') }}" class="img-fluid" alt="Image" >
-										<div class="why-text">
-											<h4>Sate Padang</h4>
-											<p>Rating 4,9</p>
-											<h5> Rp 18.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-03.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Ayam Padar Padang</h4>
-											<p>Rating : 4,5</p>
-											<h5>Rp 23.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid lunch">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-04.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Jus Melon</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 15.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid lunch">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-05.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Creammy Cofee + White Wafle</h4>
-											<p>Rating : 4,8</p>
-											<h5> Rp 17.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid lunch">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-06.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Special Milk Tea</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 15.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid dinner">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-07.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Kue Lapis</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 3.500</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid dinner">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-08.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Kue Cucur </h4>
-											<p>Rating :b4,7</p>
-											<h5> Rp 4.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid dinner">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-09.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Puluik Manih</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 4.500</h5>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-						<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-							<div class="row">
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-01.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Rendang</h4>
-											<p>Rating : 5,0</p>
-											<h5>Rp 35.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-02.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Sate Padang</h4>
-											<p>Rating 4,9</p>
-											<h5> Rp 18.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-03.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Ayam Padar Padang</h4>
-											<p>Rating : 4,5</p>
-											<h5>Rp 23.000</h5>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-						<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-							<div class="row">
-								<div class="col-lg-4 col-md-6 special-grid lunch">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-04.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-												<h4>Jus Melon</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 15.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid lunch">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-05.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Creammy Cofee + White Wafle</h4>
-											<p>Rating : 4,8</p>
-											<h5> Rp 17.000</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid lunch">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-06.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Special Milk Tea</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 15.000</h5>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-							<div class="row">
-								<div class="col-lg-4 col-md-6 special-grid dinner">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-07.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Kue Lapis</h4>
-											<p>Rating : 4,7</p>
-											<h5> Rp 3.500</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid dinner">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-08.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Special Dinner 2</h4>
-											<p>Sed id magna vitae eros sagittis euismod.</p>
-											<h5> $22.79</h5>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-6 special-grid dinner">
-									<div class="gallery-single fix">
-										<img src="{{ asset('image/img-09.jpg') }}" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>Kue Cucur </h4>
-											<p>Rating :b4,7</p>
-											<h5> Rp 4.000</h5>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="col-3">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Makanan</a>
+					<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Minuman</a>
+					<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Kue</a>
+					<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Lainnya</a>
 				</div>
 			</div>
-			
-		</div>
+				
+			<div class="col-9">
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+						<div class="row">
+                            @foreach($data as $datas)
+                            @if ($datas->jenis == "Makanan")
+							<div class="col-lg-4 col-md-6 special-grid drinks">
+								<div class="gallery-single fix">
+                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
+									<div class="why-text">
+										<h4>{{ $datas->nama }}</h4>
+										<h4>Rating: {{ $datas->rating }}</h4>
+										@if ($datas->promo != 0)
+										<h4>Promo: {{ $datas->promo }}%</h4>
+										@endif
+										<p></p>
+										<h5>Rp {{ $datas->harga }}</h5>
+									</div>
+								</div>
+							</div>
+                            @endif
+                            @endforeach
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div class="row">
+                            @foreach($data as $datas)
+                            @if ($datas->jenis == "Minuman")
+							<div class="col-lg-4 col-md-6 special-grid drinks">
+								<div class="gallery-single fix">
+                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
+    								<div class="why-text">
+										<h4>{{ $datas->nama }}</h4>
+										<h4>Rating: {{ $datas->rating }}</h4>
+										@if ($datas->promo != 0)
+										<h4>Promo: {{ $datas->promo }}%</h4>
+										@endif
+										<p></p>
+										<h5>Rp {{ $datas->harga }}</h5>
+									</div>
+    							</div>
+							</div>
+                            @endif
+                            @endforeach
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+						<div class="row">
+                            @foreach($data as $datas)
+                            @if ($datas->jenis == "Kue")
+							<div class="col-lg-4 col-md-6 special-grid drinks">
+	    						<div class="gallery-single fix">
+                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
+		    						<div class="why-text">
+			    						<h4>{{ $datas->nama }}</h4>
+										<h4>Rating: {{ $datas->rating }}</h4>
+										@if ($datas->promo != 0)
+										<h4>Promo: {{ $datas->promo }}%</h4>
+										@endif
+										<p></p>
+										<h5>Rp {{ $datas->harga }}</h5>
+									</div>
+    							</div>
+							</div>
+                            @endif
+                            @endforeach
+	    				</div>
+					</div>
+
+					<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <div class="row">
+                            @foreach($data as $datas)
+                            @if ($datas->jenis == "Lainnya")
+							<div class="col-lg-4 col-md-6 special-grid drinks">
+								<div class="gallery-single fix">
+                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
+    								<div class="why-text">
+	    								<h4>{{ $datas->nama }}</h4>
+										<h4>Rating: {{ $datas->rating }}</h4>
+										@if ($datas->promo != 0)
+										<h4>Promo: {{ $datas->promo }}%</h4>
+										@endif
+										<p></p>
+										<h5>Rp {{ $datas->harga }}</h5>
+									</div>
+								</div>
+							</div>
+                            @endif
+                            @endforeach
+						</div>
+                    </div>
+		    	</div>
+			</div>
+        </div>
 	</div>
 	<!-- End Menu -->
 	

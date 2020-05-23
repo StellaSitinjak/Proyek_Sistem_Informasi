@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Customer;
+use App\Pegawai;
 use App\Http\Controllers\Controller;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 use Illuminate\Support\Facades\Auth;
@@ -17,11 +18,11 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    public function register(){
+    public function regisCustomer(){
         return view('auth.register');
     }
 
-    public function registerPost(Request $request){
+    public function postCustomer(Request $request){
         // $this->validate($request, [
         //     'name' => 'required|string|max:255',
         //     'birthdate' => 'required',
@@ -42,7 +43,7 @@ class RegisterController extends Controller
         $tableC->gender = $request->gender;
         $tableC->email = $request->email;
         $tableC->noHP = $request->phone;
-        $tableC->visited = 1;
+        $tableC->visited = 0;
         $tableC->save();
 
         $tableU->email = $request->email;
@@ -50,19 +51,29 @@ class RegisterController extends Controller
         $tableU->save();
 
         return redirect('login')->with('alert-success','Kamu berhasil Register');
+    }
 
-        // User::create([
-        //     'email' => $request->email,
-        //     'password' => bcrypt($request->password),
-        // ]);
+    public function regisWorker(){
+        return view('auth.registerPegawai');
+    }
 
-        // return Customer::create([
-        //     'name' => $request->name,
-        //     'alamat' => $request->alamat,
-        //     'birthdate' => $request->birthdate,
-        //     'gender' => $request->gender,
-        //     'email' => $request->email,
-        //     'noHP' => $request->phone,
-        // ]);
+    public function postWorker(Request $request){
+        $tableU =  new User();
+        $tableP = new Pegawai();
+        
+        $tableP->name = $request->name;
+        $tableP->alamat = $request->alamat;
+        $tableP->birthdate = $request->birthdate;
+        $tableP->gender = $request->gender;
+        $tableP->email = $request->email;
+        $tableP->noHP = $request->phone;
+        $tableP->jabatan = $request->position;
+        $tableP->save();
+
+        $tableU->email = $request->email;
+        $tableU->password = bcrypt($request->password);
+        $tableU->save();
+
+        return redirect('login')->with('alert-success','Kamu berhasil Register');
     }
 }

@@ -1,19 +1,8 @@
 @extends('layouts.main')
 @section('title', 'Gallery')
+@section('head', '"Todayʼs Moment Are Tommorow Memories"')
 
 @section('content')
-<!-- Start All Pages -->
-<div class="all-page-title page-breadcrumb">
-	<div class="container text-center">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1>"Today's Moment Are Tommorow Memories"</h1>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End All Pages -->
-
 <!-- Start Gallery -->
 <div class="gallery-box">
 	<div class="container">
@@ -62,8 +51,6 @@
 	</div>
 </div>
 <!-- End Gallery -->
-
-
 
 <!-- Start Contact info -->
 <div class="contact-imfo-box">

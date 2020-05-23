@@ -14,11 +14,13 @@ class CreatePegawaiTable extends Migration
     public function up()
     {
         Schema::create('pegawai', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('accID');
-            $table->string('name');
+            $table->increments('id', 8);
+            $table->string('nama');
             $table->text('alamat');
+            $table->date('birthdate');
             $table->char('gender', 1);
+            $table->string('email')->unique();
+            $table->string('noHP', 13);
             $table->string('jabatan');
             $table->rememberToken();
             $table->timestamps();
