@@ -1,20 +1,33 @@
 <?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 Route::get('/', 'ContentsController@index');
+Route::get('/menu', 'ContentsController@menu');
+Route::get('/rating/{id}', 'Customer\RatingController@rating');
+Route::get('/ratingPost', 'Customer\RatingController@ratingPost');
+Route::get('/loginPost', 'Auth\LoginController@loginPost');
 
-Route::get('/menu', 'MenuController@index');
-
-Route::get('/home', 'Auth\LoginController@index');
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/loginPost', 'Auth\LoginController@loginPost');
-Route::get('/register', 'Auth\RegisterController@regisCustomer');
-Route::post('/registerPost', 'Auth\RegisterController@postCustomer');
-Route::get('/regisWorker', 'Auth\RegisterController@regisWorker');
-Route::post('/postWorker', 'Auth\RegisterController@postWorker');
-Route::get('/logout', 'Auth\LoginController@logout');
-
-Route::resource('reservation','ReservationController');
-Route::resource('resep','ResepController');
+Route::resource('promo','Admin\PromoController');
+Route::resource('rating','Customer\RateController');
+Route::resource('reservation','Kasir\ReservationController');
+Route::resource('resep','InventoryChef\ResepController');
+Route::resource('stok','InventoryChef\StokController');
 
 Route::get('/gallery', function () {
     return view('gallery');

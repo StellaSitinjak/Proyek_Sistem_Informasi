@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Menu;
+use Illuminate\Http\Request;
 
 class ContentsController extends Controller
 {
@@ -16,5 +16,16 @@ class ContentsController extends Controller
     {
         $data = Menu::all();
         return view('index',compact('data'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function menu()
+    {
+        $data = Menu::all();
+        return view('menu',compact('data'));
     }
 }

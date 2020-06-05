@@ -44,6 +44,21 @@
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Makanan")
+					<td align= "center">
+					@for ($no = 1; $no <= $datas->rating; $no++ )
+                        <span class="fa fa-star checked"></span>
+                    @endfor
+                    @for ($no = 1; $no <= (5 - $datas->rating); $no++ )
+                        <span class="fa fa-star"></span>
+                    @endfor
+					</td>
+				@endif
+                @endforeach
+				</tr>
+
+				<tr>
+				@foreach($data as $datas)
+                @if ($datas->jenis == "Makanan")
 					<td align=center><a class="button" href="#"> <b>Pesan</b></td></a>
 				@endif
                 @endforeach
@@ -71,6 +86,7 @@
 					@endif
                     @endforeach
 				</tr>
+
 				<tr>
 				@foreach($data as $datas)
     	        @if ($datas->jenis == "Minuman")
@@ -79,6 +95,21 @@
 	            @endforeach
 				</tr>
 		
+				<tr>
+				@foreach($data as $datas)
+                @if ($datas->jenis == "Minuman")
+					<td align= "center">
+					@for ($no = 1; $no <= $datas->rating; $no++ )
+                        <span class="fa fa-star checked"></span>
+                    @endfor
+                    @for ($no = 1; $no <= (5 - $datas->rating); $no++ )
+                        <span class="fa fa-star"></span>
+                    @endfor
+					</td>
+				@endif
+                @endforeach
+				</tr>
+
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Minuman")
@@ -120,6 +151,21 @@
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Kue")
+					<td align= "center">
+					@for ($no = 1; $no <= $datas->rating; $no++ )
+                        <span class="fa fa-star checked"></span>
+                    @endfor
+                    @for ($no = 1; $no <= (5 - $datas->rating); $no++ )
+                        <span class="fa fa-star"></span>
+                    @endfor
+					</td>
+				@endif
+                @endforeach
+				</tr>
+
+				<tr>
+				@foreach($data as $datas)
+                @if ($datas->jenis == "Kue")
 					<td align=center><a class="button" href="#"> <b>Pesan</b></td></a>
 				@endif
                 @endforeach
@@ -155,6 +201,21 @@
 	            @endforeach
 				</tr>
 		
+				<tr>
+				@foreach($data as $datas)
+                @if ($datas->jenis == "Lainnya")
+					<td align= "center">
+					@for ($no = 1; $no <= $datas->rating; $no++ )
+                        <span class="fa fa-star checked"></span>
+                    @endfor
+                    @for ($no = 1; $no <= (5 - $datas->rating); $no++ )
+                        <span class="fa fa-star"></span>
+                    @endfor
+					</td>
+				@endif
+                @endforeach
+				</tr>
+
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Lainnya")

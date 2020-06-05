@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMejaTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateMejaTable extends Migration
      */
     public function up()
     {
-        Schema::create('meja', function (Blueprint $table) {
-            $table->integer('id');
-            $table->string('kapasitas', 20);
-            $table->boolean('status');
-            $table->timestamps();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token')->index();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -28,6 +27,6 @@ class CreateMejaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meja');
+        Schema::dropIfExists('password_resets');
     }
 }

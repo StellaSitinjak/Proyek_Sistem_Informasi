@@ -5,41 +5,43 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Customer;
 use App\Http\Controllers\Controller;
-use Laravel\Socialite\Contracts\User as ProviderUser;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    public function index(){
-        if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
-        }
-        else{
-            return view('index');
-        }
-    }
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
 
-    public function login(){
-        return view('auth.login');
-    }
+    use AuthenticatesUsers;
 
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
+    
     public function loginPost(Request $request){
         $email = $request->email;
         $password = $request->password;
 
-        $data = User::where('email',$email)->first();
-        $dataC = Customer::where('email',$email)->first();
+        $data = User::where('email', $email)->first();
         if($data){ //apakah email tersebut ada atau tidak
             if(Hash::check($password,$data->password)){
                 $dataC->visited = $dataC->visited++;
                 $dataC->save();
-                Session::put('nama',$dataC->nama);
+                Session::put('name',$data->name);
                 Session::put('email',$data->email);
                 Session::put('login',TRUE);
-                Auth::login($dataC, true);
+                Auth::login($data);
                 return redirect('home');
             }
             else{
@@ -54,5 +56,15 @@ class LoginController extends Controller
     public function logout(){
         Session::flush();
         return redirect('login')->with('alert','Kamu sudah logout');
+    }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'logout']);
     }
 }

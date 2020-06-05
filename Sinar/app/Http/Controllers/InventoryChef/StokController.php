@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\InventoryChef;
 
-use App\Menu;
+use App\Bahan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ResepController extends Controller
+class StokController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ResepController extends Controller
      */
     public function index()
     {
-        $data = Menu::all();
-        return view('Inventory-Chef.resep',compact('data'));
+        $data = Bahan::all();
+        return view('InventoryChef.stok',compact('data'));
     }
 
     /**
@@ -25,7 +26,7 @@ class ResepController extends Controller
      */
     public function create()
     {
-        return view('Inventory-Chef.resep-create');
+        return view('InventoryChef.stok-create');
     }
 
     /**
@@ -36,14 +37,11 @@ class ResepController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Menu();
+        $data = new Bahan();
         $data->nama = $request->nama;
-        $data->harga = $request->harga;
-        $data->jenis = $request->jenis;
-        $data->resep = $request->resep;
-        $data->file = $request->file;
+        $data->stok = $request->stok;
         $data->save();
-        return redirect()->route('resep.index')->with('alert-success','Berhasil Menambahkan Data!');
+        return redirect()->route('stok.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**
@@ -54,8 +52,7 @@ class ResepController extends Controller
      */
     public function show($id)
     {
-        $data = Menu::where('id', $id)->get();
-        return view('Inventory-Chef.resep-view', compact('data'));
+        //
     }
 
     /**
@@ -66,14 +63,8 @@ class ResepController extends Controller
      */
     public function edit($id)
     {
-        $data = Menu::where('id',$id)->first();
-        $data->nama = $request->nama;
-        $data->harga = $request->harga;
-        $data->jenis = $request->jenis;
-        $data->resep = $request->resep;
-        $data->file = $request->file;
-        $data->save();
-        return redirect()->route('resep.index')->with('alert-success','Data berhasil diubah!');
+        $data = Bahan::where('id', $id)->get();
+        return view('InventoryChef.stok-edit', compact('data'));
     }
 
     /**
@@ -85,7 +76,11 @@ class ResepController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Bahan::where('id',$id)->first();
+        $data->nama = $request->nama;
+        $data->stok = $request->stok;
+        $data->save();
+        return redirect()->route('stok.index', $id)->with('alert-success','Data berhasil diubah!');
     }
 
     /**
@@ -96,8 +91,8 @@ class ResepController extends Controller
      */
     public function destroy($id)
     {
-        $data = Menu::where('id',$id)->first();
+        $data = Bahan::where('id',$id)->first();
         $data->delete();
-        return redirect()->route('resep.index')->with('alert-success','Data berhasi dihapus!');
+        return redirect()->route('stok.index')->with('alert-success','Data berhasi dihapus!');
     }
 }

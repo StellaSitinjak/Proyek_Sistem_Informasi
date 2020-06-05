@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class PromoController extends Controller
+class RateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,7 +46,8 @@ class PromoController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Menu::where('id', $id)->get();
+        return view('Customer.rating', compact('data'));
     }
 
     /**
@@ -68,7 +70,10 @@ class PromoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Menu::where('id',$id)->first();
+        $data->rating = ($data->rating + $request->rating)/5;
+        $data->save();
+        return redirect()->route('menu', $id)->with('alert-success','Data berhasil diubah!');
     }
 
     /**

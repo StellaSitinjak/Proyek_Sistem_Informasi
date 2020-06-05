@@ -8,7 +8,12 @@ class Customer extends Model
 {
     protected $table = 'customer';
 
-    public function account(){
-    	return $this->belongsTo('App\User');
-    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'alamat', 'birthdate', 'gender', 'email', 'noHP', 'visited',
+    ];
 }

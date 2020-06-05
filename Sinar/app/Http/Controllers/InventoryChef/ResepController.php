@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\InventoryChef;
 
-use App\Meja;
+use App\Menu;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ReservationController extends Controller
+class ResepController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $data = Meja::all();
-        return view('Inventory-Chef.reservation',compact('data'));
+        $data = Menu::all();
+        return view('InventoryChef.resep',compact('data'));
     }
 
     /**
@@ -25,7 +26,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return view('InventoryChef.resep-create');
     }
 
     /**
@@ -36,7 +37,16 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Menu();
+        $data->nama = $request->nama;
+        $data->harga = $request->harga;
+        $data->jenis = $request->jenis;
+        $data->resep = $request->resep;
+        $data->promo = 0;
+        $data->file = "image/";
+        $data->rating = 0;
+        $data->save();
+        return redirect()->route('resep.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**
@@ -47,10 +57,8 @@ class ReservationController extends Controller
      */
     public function show($id)
     {
-        $data = Meja::where('id', $id)->first();
-        $data->status = 0;
-        $data->save();
-        return redirect()->route('reservation.index');
+        $data = Menu::where('id', $id)->get();
+        return view('InventoryChef.resep-view', compact('data'));
     }
 
     /**
@@ -61,10 +69,8 @@ class ReservationController extends Controller
      */
     public function edit($id)
     {
-        $data = Meja::where('id', $id)->first();
-        $data->status = 1;
-        $data->save();
-        return redirect()->route('reservation.index');
+        $data = Menu::where('id', $id)->get();
+        return view('InventoryChef.resep-edit', compact('data'));
     }
 
     /**
@@ -76,10 +82,13 @@ class ReservationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Meja::where('id', $id)->first();
-        $data->status = 0;
+        $data = Menu::where('id',$id)->first();
+        $data->nama = $request->nama;
+        $data->harga = $request->harga;
+        $data->jenis = $request->jenis;
+        $data->resep = $request->resep;
         $data->save();
-        return redirect()->route('reservation.index');
+        return redirect()->route('resep.show', $id)->with('alert-success','Data berhasil diubah!');
     }
 
     /**
@@ -90,6 +99,8 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Menu::where('id',$id)->first();
+        $data->delete();
+        return redirect()->route('resep.index')->with('alert-success','Data berhasi dihapus!');
     }
 }
