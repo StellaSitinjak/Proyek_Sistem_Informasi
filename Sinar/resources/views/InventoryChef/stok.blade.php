@@ -41,7 +41,11 @@
                         <td>{{ $no++ }}</td>
                         <!-- <td width="25%" class="zoom"><img src="image/Bahan/".{{ $datas->file }} width="85%"></td> -->
 						<td>{{ $datas->nama }}</td>
-						<td>{{ $datas->stok }}</td>
+						@if($datas->stok < 10)
+							<td style="color:red"><b>{{ $datas->stok }} !!!</b></td>
+						@else
+							<td>{{ $datas->stok }}</td>
+						@endif
 						<td>
 							<a class="btn-link" href="{{ route('stok.edit', $datas->id) }}">Edit</a>
 						</td>

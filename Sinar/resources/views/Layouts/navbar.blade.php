@@ -8,51 +8,80 @@
 			<div class="collapse navbar-collapse" id="navbars-rs-food">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-                    @if (Auth::guest())
-                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Daftar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Masuk</a></li>
-                    @elseif (Auth::user()->name == "Admin")
-					<li class="nav-item"><a class="nav-link" href="/promo">Promo</a></li>
-
-					<li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" id="dropdown-a" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-						<div class="dropdown-menu" aria-labelledby="dropdown-a">
-                            <a class="dropdown-item" href="#">Laporan Keuangan</a>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-						</div>
-					</li>
+                    @if (Session::get('login'))
+                        @if (Session::get('email') == "admin@gmail.com")
+    	    			<li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
+    	    			<li class="nav-item"><a class="nav-link" href="/promo">Menu</a></li>
+    	    			<li class="nav-item"><a class="nav-link" href="/laporan-keuangan">Laporan</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Admin</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Profil</a>
+                                    <a class="dropdown-item" href="/register-pegawai">Registrasi Pegawai</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        @elseif (Session::get('role') == "Kasir")
+    	    			<li class="nav-item"><a class="nav-link" href="/reservation">Reservation</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">{{ Session::get('nama') }}</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Profil</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        @elseif (Session::get('role') == "Inventory/Chef")
+    	    			<li class="nav-item"><a class="nav-link" href="/resep">Resep</a></li>
+    	    			<li class="nav-item"><a class="nav-link" href="/stok">Stok</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">{{ Session::get('nama') }}</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Profil</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        @else
+                        <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+    	    			<li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
+    	    			<li class="nav-item"><a class="nav-link" href="/reservation">Reservation</a></li>
+		    			<li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">{{ Session::get('nama') }}</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Profil</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        @endif
                     @else
-    				<li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-    				<li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
-
-					<li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" id="dropdown-a" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-						<div class="dropdown-menu" aria-labelledby="dropdown-a">
-                            <a class="dropdown-item" href="/reservation">Reservation</a>
-                            <a class="dropdown-item" href="#">Dashboard</a>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-						</div>
-					</li>
+                        <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+    	    			<li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
+        				<li class="nav-item"><a class="nav-link" href="/register">Daftar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Masuk</a></li>
                     @endif
         		</ul>
     		</div>

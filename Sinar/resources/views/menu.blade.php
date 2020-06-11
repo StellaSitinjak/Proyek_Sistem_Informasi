@@ -35,12 +35,18 @@
 				</tr>
 				<tr>
 				@foreach($data as $datas)
-    	        @if ($datas->jenis == "Makanan")
-					<td align=center><font size="3" color="black">Rp 35.000</font></td>
+				@if ($datas->jenis == "Makanan")
+					@if ($datas->promo != 0)
+						<td align=center><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font>
+						&nbsp;
+						<font size="3" color="black">Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</font></td>
+					@else
+						<td align=center><font size="3" color="black">Rp {{ $datas->harga }}</font></td>
+					@endif
 				@endif
 	            @endforeach
 				</tr>
-		
+
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Makanan")
@@ -58,8 +64,8 @@
 
 				<tr>
 				@foreach($data as $datas)
-                @if ($datas->jenis == "Makanan")
-					<td align=center><a class="button" href="#"> <b>Pesan</b></td></a>
+				@if ($datas->jenis == "Makanan")
+					<td align=center><a class="button" href="/pesan"> <b>Pesan</b></td></a>
 				@endif
                 @endforeach
 				</tr>
@@ -90,7 +96,13 @@
 				<tr>
 				@foreach($data as $datas)
     	        @if ($datas->jenis == "Minuman")
-					<td align=center><font size="3" color="black">Rp 35.000</font></td>
+					@if ($datas->promo != 0)
+						<td align=center><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font>
+						&nbsp;
+						<font size="3" color="black">Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</font></td>
+					@else
+						<td align=center><font size="3" color="black">Rp {{ $datas->harga }}</font></td>
+					@endif
 				@endif
 	            @endforeach
 				</tr>
@@ -143,7 +155,13 @@
 				<tr>
 				@foreach($data as $datas)
     	        @if ($datas->jenis == "Kue")
-					<td align=center><font size="3" color="black">Rp 35.000</font></td>
+					@if ($datas->promo != 0)
+						<td align=center><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font>
+						&nbsp;
+						<font size="3" color="black">Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</font></td>
+					@else
+						<td align=center><font size="3" color="black">Rp {{ $datas->harga }}</font></td>
+					@endif
 				@endif
 	            @endforeach
 				</tr>
@@ -195,8 +213,14 @@
 				</tr>
 				<tr>
 				@foreach($data as $datas)
-    	        @if ($datas->jenis == "Lainnya")
-					<td align=center><font size="3" color="black">Rp 35.000</font></td>
+				@if ($datas->jenis == "Lainnya")
+					@if ($datas->promo != 0)
+						<td align=center><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font>
+						&nbsp;
+						<font size="3" color="black">Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</font></td>
+					@else
+						<td align=center><font size="3" color="black">Rp {{ $datas->harga }}</font></td>
+					@endif
 				@endif
 	            @endforeach
 				</tr>

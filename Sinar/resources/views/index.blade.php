@@ -72,8 +72,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>Our Special Menu</h2>
-						<p>Menu Promo Hari Ini</p>
+						<h2>Menu Promo Hari Ini</h2>
+						<p>Our Special Menu</p>
 					</div>
 				</div>
 			</div>
@@ -93,22 +93,23 @@
 					<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 						<div class="row">
                             @foreach($data as $datas)
-                            @if ($datas->jenis == "Makanan")
-							<div class="col-lg-4 col-md-6 special-grid drinks">
-								<div class="gallery-single fix">
-                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
-									<div class="why-text">
-										<h4>{{ $datas->nama }}</h4>
-										<h4>Rating: {{ $datas->rating }}</h4>
-										@if ($datas->promo != 0)
-										<h4>Promo: {{ $datas->promo }}%</h4>
-										@endif
-										<p></p>
-										<h5>Rp {{ $datas->harga }}</h5>
+	                            @if ($datas->jenis == "Makanan")
+									@if ($datas->promo != 0)
+									<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="gallery-single fix">
+        		                            <img src={{ $datas->file }} class="img-fluid" alt="Image">
+											<div class="why-text">
+												<h5>{{ $datas->nama }}</h5>
+												<h6>Rating: {{ $datas->rating }}</h6>
+												<h6>Promo: {{ $datas->promo }}%</h6>
+												<p></p>
+												<h4><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font> &nbsp;
+												Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</h4>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-                            @endif
+									@endif
+        	                    @endif
                             @endforeach
 						</div>
 					</div>
@@ -116,22 +117,23 @@
 					<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                         <div class="row">
                             @foreach($data as $datas)
-                            @if ($datas->jenis == "Minuman")
-							<div class="col-lg-4 col-md-6 special-grid drinks">
-								<div class="gallery-single fix">
-                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
-    								<div class="why-text">
-										<h4>{{ $datas->nama }}</h4>
-										<h4>Rating: {{ $datas->rating }}</h4>
-										@if ($datas->promo != 0)
-										<h4>Promo: {{ $datas->promo }}%</h4>
-										@endif
-										<p></p>
-										<h5>Rp {{ $datas->harga }}</h5>
+	                            @if ($datas->jenis == "Minuman")
+									@if ($datas->promo != 0)
+									<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="gallery-single fix">
+                            		        <img src={{ $datas->file }} class="img-fluid" alt="Image">
+    										<div class="why-text">
+												<h5>{{ $datas->nama }}</h5>
+												<h6>Rating: {{ $datas->rating }}</h6>
+												<h6>Promo: {{ $datas->promo }}%</h6>
+												<p></p>
+												<h4><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font> &nbsp;
+												Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</h4>
+											</div>
+    									</div>
 									</div>
-    							</div>
-							</div>
-                            @endif
+									@endif
+	                            @endif
                             @endforeach
 						</div>
 					</div>
@@ -139,22 +141,23 @@
 					<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
 						<div class="row">
                             @foreach($data as $datas)
-                            @if ($datas->jenis == "Kue")
-							<div class="col-lg-4 col-md-6 special-grid drinks">
-	    						<div class="gallery-single fix">
-                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
-		    						<div class="why-text">
-			    						<h4>{{ $datas->nama }}</h4>
-										<h4>Rating: {{ $datas->rating }}</h4>
-										@if ($datas->promo != 0)
-										<h4>Promo: {{ $datas->promo }}%</h4>
-										@endif
-										<p></p>
-										<h5>Rp {{ $datas->harga }}</h5>
+	                            @if ($datas->jenis == "Kue")
+									@if ($datas->promo != 0)
+									<div class="col-lg-4 col-md-6 special-grid drinks">
+	    								<div class="gallery-single fix">
+                            		        <img src={{ $datas->file }} class="img-fluid" alt="Image">
+		    								<div class="why-text">
+												<h5>{{ $datas->nama }}</h5>
+												<h6>Rating: {{ $datas->rating }}</h6>
+												<h6>Promo: {{ $datas->promo }}%</h6>
+												<p></p>
+												<h4><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font> &nbsp;
+												Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</h4>
+											</div>
+    									</div>
 									</div>
-    							</div>
-							</div>
-                            @endif
+									@endif
+	                            @endif
                             @endforeach
 	    				</div>
 					</div>
@@ -162,22 +165,23 @@
 					<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <div class="row">
                             @foreach($data as $datas)
-                            @if ($datas->jenis == "Lainnya")
-							<div class="col-lg-4 col-md-6 special-grid drinks">
-								<div class="gallery-single fix">
-                                    <img src={{ $datas->file }} class="img-fluid" alt="Image">
-    								<div class="why-text">
-	    								<h4>{{ $datas->nama }}</h4>
-										<h4>Rating: {{ $datas->rating }}</h4>
-										@if ($datas->promo != 0)
-										<h4>Promo: {{ $datas->promo }}%</h4>
-										@endif
-										<p></p>
-										<h5>Rp {{ $datas->harga }}</h5>
+	                            @if ($datas->jenis == "Lainnya")
+									@if ($datas->promo != 0)
+									<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="gallery-single fix">
+                            	    	    <img src={{ $datas->file }} class="img-fluid" alt="Image">
+    										<div class="why-text">
+												<h5>{{ $datas->nama }}</h5>
+												<h6>Rating: {{ $datas->rating }}</h6>
+												<h6>Promo: {{ $datas->promo }}%</h6>
+												<p></p>
+												<h4><font size="2" color="black"><s>Rp {{ $datas->harga }}</s></font> &nbsp;
+												Rp {{ ($datas->harga - (($datas->promo/100)*$datas->harga)) }}</h4>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-                            @endif
+									@endif
+	                            @endif
                             @endforeach
 						</div>
                     </div>

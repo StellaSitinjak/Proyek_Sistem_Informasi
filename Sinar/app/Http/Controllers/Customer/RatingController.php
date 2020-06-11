@@ -31,7 +31,7 @@ class RatingController extends Controller
     public function ratingPost(Request $request, $id)
     {
         $data = Menu::where('id',$id)->first();
-        $data->rating = ($data->rating + $request->rating)/5;
+        $data->rating = $request->rating;
         $data->save();
         return redirect()->route('menu', $id)->with('alert-success','Data berhasil diubah!');
     }

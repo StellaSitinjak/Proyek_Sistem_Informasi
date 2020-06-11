@@ -1,20 +1,35 @@
 # Proyek_Sistem Informasi
+This is a simple app built with Laravel 5.7 for Rumah Makan Sinar Minang Balige.
 
-note:
-To create another laravel project, use this
-composer create-project laravel/laravel project_name 6.0
-
-To run project:
+## Instruction
+- Clone project
+- Install all the dependencies.
+```
+composer install
+```
+- Create a new database named "sinarminang"
+- Run sql query
+- Modify the config/database.php to match with your local configuration.
+- Start the app
+```
 php artisan serve
+```
 
-To make an automatic mysql database:
-php artisan migrate
+## url that can accessed:
+1. Un-Registered Customer
+   - /menu
+   - /gallery
+   - /login
+   - /register
 
-url that can access:
-localhost/
-localhost/menu
-localhost/register
-localhost/login
-localhost/resep
-localhost/gallery
-localhost/reservation
+2. Registered Customer
+
+3. Admin
+   - /promo
+
+4. Kasir
+   - /reservation
+
+5. Chef/Inventory
+   - /stok
+   - /resep
