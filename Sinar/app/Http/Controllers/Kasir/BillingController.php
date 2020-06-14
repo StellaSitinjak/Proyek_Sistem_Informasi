@@ -24,13 +24,16 @@ class BillingController extends Controller
             ->join('customer', 'userID', '=', 'customer.id')
             ->select('pesanan.mejaID',
                     'customer.nama',
-                    'pesananID',
-                    DB::raw('COUNT(id) as amount'))
+                    'userID',
+                    DB::raw('COUNT(userID) as amount'))
             ->where([
                 ['pesanan.mejaID', '<>', 0],
                 ['pesanan.status', '=', 0],
+                ['pesanan.menuID', '<>', 0]
             ])
-            ->groupBy('customer.nama', 'pesanan.mejaID', 'pesananID')
+            ->groupBy('customer.nama',
+                    'pesanan.mejaID',
+                    'userID')
             ->get();
 
         return view('Kasir.billing',['data' => $data]);
@@ -68,14 +71,20 @@ class BillingController extends Controller
         $pesanan = DB::table('pesanan')
                 ->select('menu.*', 'jumlah', 'pesananID')
                 ->join('menu', 'pesanan.menuID', '=', 'menu.id')
-                ->where('pesananID', $id)
+                ->where([
+                    ['userID', $id],
+                    ['status', '<>', 0]
+                ])
                 ->get();
         
         $total = DB::table('pesanan')
-                ->select(DB::raw('SUM(menu.harga * pesanan.jumlah) as total'))
+                ->select(DB::raw('SUM(menu.harga * pesanan.jumlah) as total'), 'userID')
                 ->join('menu', 'pesanan.menuID', '=', 'menu.id')
-                ->where('pesananID', $id)
-                ->groupBy('pesananID')
+                ->where([
+                    ['userID', $id],
+                    ['status', '<>', 0]
+                ])
+                ->groupBy('userID')
                 ->havingRaw('SUM(menu.harga * pesanan.jumlah) > ?', [2500])
                 ->get();
 
@@ -95,13 +104,16 @@ class BillingController extends Controller
         $jumlah = DB::table('pesanan')
                 ->select(DB::raw('SUM(menu.harga * pesanan.jumlah) as total'))
                 ->join('menu', 'pesanan.menuID', '=', 'menu.id')
-                ->where('pesananID', $id)
-                ->groupBy('pesananID')
+                ->where([
+                    ['userID', $id],
+                    ['status', '<>', 0]
+                ])
+                ->groupBy('userID')
                 ->havingRaw('SUM(menu.harga * pesanan.jumlah) > ?', [2500])
                 ->first();
 
         $pesanan = DB::table('pesanan')
-                ->where('pesananID', $id)
+                ->where('userID', $id)
                 ->update(['status' => 1]);
 
 
@@ -109,12 +121,6 @@ class BillingController extends Controller
         $data['jenis'] = "Pemasukan";
         $data['total'] = $jumlah->total;
         Laporan::create($data);
-
-        // $data = new Laporan();
-        // $data->name = "Penjualan";
-        // $data->jenis = "Pemasukan";
-        // $data->total = $total;
-        // $data->save();
         return redirect()->route('billing.index', $id);
     }
 

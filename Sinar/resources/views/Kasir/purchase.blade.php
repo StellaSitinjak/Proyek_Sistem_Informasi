@@ -22,7 +22,6 @@
 
 		<br>
 
-		@foreach($data['pesan'] as $datap)
         <div class="row inner-menu-box">
 			<table class="table">
 			    <thead>
@@ -60,12 +59,11 @@
 				<hr>
             	<div class="row cart-total">
 					<div class="col-md-12 text-right"><a class="btn btn-primary btn-purchase"
-					type="button" href="{{ route('billing.edit', $datap->pesananID) }}">Purchase</a></div>
+					type="button" href="{{ route('billing.edit', $datas->userID) }}">Purchase</a></div>
 				</div>
 			@endforeach
         	</section>
 		</div>
-		@endforeach
 	</div>
 </div>
 <!-- End Cart -->

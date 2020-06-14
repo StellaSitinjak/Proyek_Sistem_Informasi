@@ -17,18 +17,25 @@ php artisan serve
 
 ## url that can accessed:
 1. Un-Registered Customer
+   - /home
    - /menu
    - /gallery
-   - /login
    - /register
 
 2. Registered Customer
+   - /login
+   - /logout
+   - /cart
+   - /rating
+   - /booking
 
 3. Admin
    - /promo
+   - /register-pegawai
 
 4. Kasir
    - /reservation
+   - /billing
 
 5. Inventory/Chef
    - /stok

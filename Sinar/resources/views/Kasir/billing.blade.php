@@ -31,7 +31,7 @@
 						<td>{{ $datas->mejaID }}</td>
 						<td>{{ $datas->nama }}</td>
 						<td>
-							<form action="{{ route('billing.show', $datas->pesananID) }}" method="GET">
+							<form action="{{ route('billing.show', $datas->userID) }}" method="GET">
 								{{ csrf_field() }}
                                 {{ method_field('GET') }}
 								<button class="btn btn-submit" type="submit">Detail</button>
