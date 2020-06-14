@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Start Reservation -->
-<div class="reservation-box">
+<div class="menu-box">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">

@@ -3,7 +3,7 @@
 @section('head', 'Rumah Makan Sinar Minang Balige')
 
 @section('content')
-<div class="reservation-box">
+<div class="menu-box">
     @foreach($data as $datas)
     <div class="row">
 		<div class="col-lg-12">

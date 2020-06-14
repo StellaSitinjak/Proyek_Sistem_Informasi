@@ -9,8 +9,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="heading-title text-center">
-					<h2>Cart</h2>
-                    <p> Menu yang kamu pesan </p>
+					<h2>Pembayaran</h2>
 					@if(Session::has('alert-success'))
 	                <div class="alert alert-success">
     	                <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>

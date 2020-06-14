@@ -66,9 +66,7 @@ CREATE TABLE `customer` (
 
 insert  into `customer`(`id`,`nama`,`alamat`,`birthdate`,`gender`,`email`,`noHP`,`visited`,`remember_token`,`created_at`,`updated_at`) values 
 (1,'Stella','Rumah','2000-05-12','P','stella@gmail.com','085359198820',1,NULL,'2020-05-21 14:53:25','2020-05-21 14:53:25'),
-(17,'Tire','Rmh','2020-04-30','P','tire@gmail.com','085359198820',14,NULL,'2020-06-11 13:36:00','2020-06-14 06:44:11'),
-(18,'Chain','lala','2020-05-01','L','try@gmail.com','lallalala',0,NULL,'2020-06-13 04:32:33','2020-06-13 04:32:33'),
-(20,'Chain','lala','2020-05-01','L','chain@gmail.com','lallalala',0,NULL,'2020-06-13 04:33:00','2020-06-13 04:33:00');
+(17,'Tire','Rmh','2020-04-30','P','tire@gmail.com','085359198820',15,NULL,'2020-06-11 13:36:00','2020-06-14 11:12:06');
 
 /*Table structure for table `laporan` */
 
@@ -76,16 +74,19 @@ DROP TABLE IF EXISTS `laporan`;
 
 CREATE TABLE `laporan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `jenis` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tanggal` date NOT NULL,
   `total` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `laporan` */
+
+insert  into `laporan`(`id`,`nama`,`jenis`,`total`,`created_at`,`updated_at`) values 
+(1,'Penjualan','Pemasukan',72000,'2020-06-14 12:46:58','2020-06-14 12:46:58'),
+(2,'Penjualan','Pemasukan',97000,'2020-06-14 13:23:04','2020-06-14 13:23:04');
 
 /*Table structure for table `meja` */
 
@@ -103,10 +104,10 @@ CREATE TABLE `meja` (
 /*Data for the table `meja` */
 
 insert  into `meja`(`id`,`kapasitas`,`status`,`booking`,`created_at`,`updated_at`) values 
-(1,'4',1,NULL,NULL,NULL),
-(2,'4',1,NULL,NULL,NULL),
-(3,'4',1,'2020-06-13 20:19:00',NULL,'2020-06-13 13:19:26'),
-(4,'4',1,NULL,NULL,'2020-06-14 07:30:26'),
+(1,'4',1,'0000-00-00 00:00:00',NULL,'2020-06-14 07:47:09'),
+(2,'4',0,'0000-00-00 00:00:00',NULL,'2020-06-14 13:59:13'),
+(3,'4',1,'2020-06-14 21:04:00',NULL,'2020-06-14 14:04:24'),
+(4,'4',0,'0000-00-00 00:00:00',NULL,'2020-06-14 07:47:32'),
 (5,'6',0,NULL,NULL,'2020-06-13 06:48:02'),
 (6,'8',0,NULL,NULL,'2020-06-13 06:48:49');
 
@@ -209,19 +210,17 @@ CREATE TABLE `pesanan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`pesananID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `pesanan` */
 
 insert  into `pesanan`(`pesananID`,`userID`,`menuID`,`mejaID`,`jumlah`,`status`,`created_at`,`updated_at`) values 
-(1,17,2,1,2,0,NULL,NULL),
-(4,17,1,1,2,0,NULL,'2020-06-12 12:45:41'),
-(13,1,1,2,1,0,NULL,NULL),
+(4,17,1,1,2,1,NULL,'2020-06-12 12:45:41'),
 (14,17,3,1,1,1,NULL,NULL),
-(15,17,3,1,1,0,'2020-06-13 04:16:18','2020-06-13 04:16:18'),
-(16,17,4,1,1,0,'2020-06-13 04:25:16','2020-06-13 04:25:16'),
-(17,17,1,1,1,0,'2020-06-13 06:42:00','2020-06-13 06:42:00'),
-(18,17,0,3,0,0,'2020-06-13 13:14:47','2020-06-13 13:14:47');
+(15,17,3,1,1,1,'2020-06-13 04:16:18','2020-06-13 04:16:18'),
+(16,17,4,1,1,1,'2020-06-13 04:25:16','2020-06-13 04:25:16'),
+(17,17,1,1,1,1,'2020-06-13 06:42:00','2020-06-13 06:42:00'),
+(26,17,0,3,0,0,'2020-06-14 14:04:24','2020-06-14 14:04:24');
 
 /*Table structure for table `users` */
 

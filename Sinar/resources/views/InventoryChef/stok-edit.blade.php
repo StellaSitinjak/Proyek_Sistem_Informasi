@@ -3,7 +3,7 @@
 @section('head', 'Rumah Makan Sinar Minang Balige')
 
 @section('content')
-<div class="reservation-box">
+<div class="menu-box">
     <div class="row">
 		<div class="col-lg-12">
 			<div class="heading-title text-center">

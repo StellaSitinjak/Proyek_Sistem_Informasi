@@ -68,7 +68,7 @@ class BookingController extends Controller
     public function show($id)
     {
         $data = Meja::where('id', $id)->get();
-        return view('Customer.booking-edit',compact('data'));
+        return view('Customer.booking-view',compact('data'));
     }
 
     /**
@@ -79,20 +79,8 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        // $data = DB::table('pesanan')
-        //     ->join('menu', 'menuID', '=', 'menu.id')
-        //     ->join('meja', 'mejaID', '=', 'meja.id')
-        //     ->select('menu.*', 'pesanan.jumlah', 'meja.id')
-        //     ->where([
-        //         ['pesanan.userID', '=', Session::get('id')],
-        //         ['pesanan.status', '=', 0],
-        //     ])
-        //     ->get();
-
-        // $data = Meja::where('id', $id)->first();
-        // $data->status = 1;
-        // $data->save();
-        // return redirect()->route('booking.index');
+        $data = Meja::where('id', $id)->get();
+        return view('Customer.booking-edit',compact('data'));
     }
 
     /**
@@ -115,7 +103,7 @@ class BookingController extends Controller
         $data->status = 1;
         $data->booking = $request->time;
         $data->save();
-        return redirect()->route('booking.index')->with('alert-success','Meja berhasil di pesan.');
+        return redirect()->route('booking.index')->with('alert-success','Pemesanan berhasil diperbaharui.');
     }
 
     /**
@@ -126,21 +114,19 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        echo "done";
-        $data = DB::table('pesanan')->where([
+        DB::table('pesanan')->where([
             ['userID', Session::get('id')],
-            ['menuID', '=', 0],
-            ['mejaID', '=', $id],
-        ])->get();
-
-        echo $data->menuID;
+            ['menuID', 0],
+            ['mejaID', $id],
+            ['status', 0],
+        ])->delete();
 
         DB::table('meja')
             ->where('id', $id)
             ->update([
-                ['booking' => '0000-00-00 00:00:00'],
+                ['booking' => "0000-00-00 00:00:00"],
                 ['status' => 0],
             ]);
-        // return redirect()->route('booking.index')->with('alert-success','Pemesanan meja berhasil di batalkan.');
+        return redirect()->route('booking.index')->with('alert-success','Pemesanan meja berhasil di batalkan.');
     }
 }

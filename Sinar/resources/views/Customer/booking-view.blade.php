@@ -17,14 +17,14 @@
         <div class="col-md-10 offset-md-1">
         @foreach($data as $datas)
             <a href="{{ route('booking.index') }}" class="btn btn-submit">Back</a>
-            <form action="{{ route('booking.update', $datas->id) }}" method="post">
+            <form action="{{ route('booking.edit', $datas->id) }}" method="GET">
                 {{ csrf_field() }}
-                {{ method_field('PUT') }}
+                {{ method_field('GET') }}
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="time"><b>Nomor Meja</b></label>
-        		        	<input type="text" name="id" id="id" class="form-control" value="{{ $datas->id }}" disabled>
+        		        	<input type="text" name="time" id="time" class="form-control" value="{{ $datas-> id }}" disabled>
                         </div>
                         <div class="form-group">
                             <label for="time"><b>Kapasitas: </b>{{ $datas->kapasitas }} orang</label>
@@ -33,16 +33,15 @@
 
                     <div class="col-md-6 border-left">
                         <div class="form-group">
-                            <label for="time"><b>Waktu Reservasi</b></label>
-        		        	<input type="datetime-local" name="time" id="time" class="form-control">
+                            <label for="time"><b>Waktu Reservasi: </b>{{ $datas->booking }}</label>
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-						<div class="submit-button text-center">
-                            <button type="submit" class="btn btn-md btn-primary">Simpan</button>
-                            <button type="reset" class="btn btn-md btn-warning">Cancel</button>
-						</div>
+                    <div class="col-md-12 text-center">
+                    <br>
+                        <a class="btn btn-submit" href="{{ route('booking.edit', $datas->id) }}">Edit</a>
+						<a class="btn btn-danger" href="{{ route('booking.destroy', $datas->id) }}" method="get"
+                            onclick="return confirm('Yakin ingin membatalkan?')">Batal</a>
 					</div>
                 </div>
             </form>

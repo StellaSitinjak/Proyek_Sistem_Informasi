@@ -5,7 +5,7 @@
 @section('content')
 <!-- Start Cart -->
 <script src="{{ asset('js\store.js') }}" async></script>
-<div class="reservation-box">
+<div class="menu-box">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">

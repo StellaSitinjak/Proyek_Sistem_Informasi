@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Start Reservation -->
-<div class="reservation-box">
+<div class="menu-box">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -34,15 +34,14 @@
             	    <tr align="center">
 						<td>{{ $datas->id }}</td>
 						<td>{{ $datas->kapasitas }}</td>
+						@if($datas->booking != 0)
 						<td>{{ $datas->booking }}</td>
+						@endif
 						<td>
 						@if ($datas->status == 0)
-							<a class="btn btn-submit" href="{{ route('booking.show', $datas->id) }}">Pesan</a>
+							<a class="btn btn-submit" href="{{ route('booking.edit', $datas->id) }}">Pesan</a>
 						@else
-							<a class="btn btn-submit" href="{{ route('booking.show', $datas->id) }}">Edit</a>
-							<br><br>
-							<a class="btn btn-danger" href="{{ route('booking.destroy', $datas->id) }}" method="delete"
-                                onclick="return confirm('Yakin ingin membatalkan?')">Delete</a>
+							<a class="btn btn-submit" href="{{ route('booking.show', $datas->id) }}">View</a>
 						@endif
 						</td>
 				    </tr>
