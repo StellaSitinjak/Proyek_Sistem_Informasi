@@ -30,6 +30,28 @@ php artisan serve
 4. Kasir
    - /reservation
 
-5. Chef/Inventory
+5. Inventory/Chef
    - /stok
    - /resep
+
+## Akun yang dapat dipakai
+1. Admin
+```
+username: admin@gmail.com
+password: admin123
+```
+2. Customer
+```
+username: tire@gmail.com
+password: lalala123
+```
+3. Kasir
+```
+username: frame@gmail.com
+password: frame123
+```
+4. Inventory/Chef
+```
+username: lala@gmail.com
+password: lalala123
+```

@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Customer;
 
 use DB;
+use App\Customer;
 use App\Menu;
+use App\Meja;
 use App\Pesanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
-class RatingController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,14 +22,15 @@ class RatingController extends Controller
     {
         $data = DB::table('pesanan')
             ->join('menu', 'menuID', '=', 'menu.id')
-            ->select('menu.*', 'pesanan.jumlah')
+            ->join('meja', 'mejaID', '=', 'meja.id')
+            ->select('menu.*', 'pesanan.jumlah', 'meja.id')
             ->where([
                 ['pesanan.userID', '=', Session::get('id')],
-                ['pesanan.status', '=', 1],
+                ['pesanan.status', '=', 0],
             ])
             ->get();
 
-        return view('Customer.rating', ['data' => $data]);
+        return view('Customer.cart',['data' => $data]);
     }
 
     /**
@@ -59,8 +62,7 @@ class RatingController extends Controller
      */
     public function show($id)
     {
-        $data = Menu::where('id', $id)->get();
-        return view('Customer.rating-edit', compact('data'));
+        //
     }
 
     /**
@@ -71,7 +73,13 @@ class RatingController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(!Session::get('login')){
+            return redirect('login')->with('alert','Kamu harus login dulu');
+        }
+        else{
+            $data = Pesanan::where('id', $id)->get();
+            return view('InventoryChef.stok-edit', compact('data'));
+        }
     }
 
     /**
@@ -83,9 +91,7 @@ class RatingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Menu::where('id', $id)->first();
-        Menu::where('id',$id)->update(['rating' => ($data->rating + $request->rating)/2]);
-        return redirect('/menu')->with('alert-success','Rating berhasil disimpan!');
+        //
     }
 
     /**

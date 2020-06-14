@@ -11,6 +11,11 @@
                 <div class="heading-title text-center">
                     <h2>Our Menu</h2>
                     <p> Tentukan seleramu </p>
+					@if(Session::has('alert-success'))
+	                <div class="alert alert-success">
+    	                <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
+        	        </div>
+            		@endif
                 </div>
             </div>
         </div>
@@ -65,7 +70,10 @@
 				<tr>
 				@foreach($data as $datas)
 				@if ($datas->jenis == "Makanan")
-					<td align=center><a class="button" href="/pesan"> <b>Pesan</b></td></a>
+					@if(Session::get('email') != "admin@gmail.com" && Session::get('login')
+						&& Session::get('role') != "Kasir" && Session::get('role') != "Inventory/Chef")
+						<td align=center><a class="button" href="{{ route('menu.edit', $datas->id) }}"> <b>Pesan</b></td></a>
+					@endif
 				@endif
                 @endforeach
 				</tr>
@@ -125,7 +133,10 @@
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Minuman")
-					<td align=center><a class="button" href="#"> <b>Pesan</b></td></a>
+				@if(Session::get('email') != "admin@gmail.com" && Session::get('login')
+						&& Session::get('role') != "Kasir" && Session::get('role') != "Inventory/Chef")
+						<td align=center><a class="button" href="{{ route('menu.edit', $datas->id) }}"> <b>Pesan</b></td></a>
+					@endif
 				@endif
                 @endforeach
 				</tr>
@@ -184,7 +195,10 @@
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Kue")
-					<td align=center><a class="button" href="#"> <b>Pesan</b></td></a>
+				@if(Session::get('email') != "admin@gmail.com" && Session::get('login')
+						&& Session::get('role') != "Kasir" && Session::get('role') != "Inventory/Chef")
+						<td align=center><a class="button" href="{{ route('menu.edit', $datas->id) }}"> <b>Pesan</b></td></a>
+					@endif
 				@endif
                 @endforeach
 				</tr>
@@ -243,7 +257,10 @@
 				<tr>
 				@foreach($data as $datas)
                 @if ($datas->jenis == "Lainnya")
-					<td align=center><a class="button" href="#"> <b>Pesan</b></td></a>
+					@if(Session::get('email') != "admin@gmail.com" && Session::get('login')
+						&& Session::get('role') != "Kasir" && Session::get('role') != "Inventory/Chef")
+						<td align=center><a class="button" href="{{ route('menu.edit', $datas->id) }}"> <b>Pesan</b></td></a>
+					@endif
 				@endif
                 @endforeach
 				</tr>

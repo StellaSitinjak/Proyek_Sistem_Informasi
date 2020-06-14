@@ -30,6 +30,7 @@
 			            <!-- <th>Picture</th> -->
     				    <th>Name</th>
 			            <th>Current Inventory</th>
+			            <th>Satuan</th>
     				    <th>Action</th>
 					</tr>
 				</thead>
@@ -46,6 +47,7 @@
 						@else
 							<td>{{ $datas->stok }}</td>
 						@endif
+						<td>{{ $datas->satuan }}</td>
 						<td>
 							<a class="btn-link" href="{{ route('stok.edit', $datas->id) }}">Edit</a>
 						</td>

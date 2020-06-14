@@ -11,6 +11,11 @@
 				<div class="heading-title text-center">
 					<h2>Reservation</h2>
 					<p>Book a table</p>
+					@if(Session::has('alert-success'))
+	                <div class="alert alert-success">
+    	                <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
+        	        </div>
+            		@endif
 				</div>
 			</div>
 		</div>
@@ -21,8 +26,6 @@
 		    	    <tr align="center">
 			            <th>No Meja</th>
     				    <th>Kapasitas/Orang</th>
-			            <th>Status</th>
-        			    <th>Action</th>
 					</tr>
 				</thead>
 	
@@ -31,29 +34,16 @@
             	    <tr align="center">
 						<td>{{ $datas->id }}</td>
 						<td>{{ $datas->kapasitas }}</td>
-						@if ($datas->status == 0)
-						<td>Tersedia</td>
-						@elseif ($datas->created_at != NULL)
-						<td>Dipesan</td>
-						@else
-						<td>Tidak Tersedia</td>
-						@endif
+						<td>{{ $datas->booking }}</td>
 						<td>
-							@if ($datas->status == 0)
-								<a href="{{ route('reservation.edit', $datas->id) }}" class="btn btn-submit">Pesan</a>
-							@else
-							<a class="btn btn-danger" href="{{ route('reservation.destroy', $datas->id) }}" method="delete"
+						@if ($datas->status == 0)
+							<a class="btn btn-submit" href="{{ route('booking.show', $datas->id) }}">Pesan</a>
+						@else
+							<a class="btn btn-submit" href="{{ route('booking.show', $datas->id) }}">Edit</a>
+							<br><br>
+							<a class="btn btn-danger" href="{{ route('booking.destroy', $datas->id) }}" method="delete"
                                 onclick="return confirm('Yakin ingin membatalkan?')">Delete</a>
-							@endif
-							<!-- <form action="{{ route('reservation.destroy', $datas->id) }}" method="DELETE">
-								{{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-								@if ($datas->status == 0)
-								<a href="{{ route('reservation.edit', $datas->id) }}" class="btn btn-submit">Pesan</a>
-								@else
-								<button class="btn btn-danger" type="submit" onclick="return confirm('Yakin ingin membatalkan?')">Batal</button>
-								@endif
-							</form> -->
+						@endif
 						</td>
 				    </tr>
 					@endforeach

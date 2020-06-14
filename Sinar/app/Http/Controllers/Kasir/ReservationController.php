@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Kasir;
 
+use DB;
 use App\Meja;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -48,10 +49,7 @@ class ReservationController extends Controller
      */
     public function show($id)
     {
-        $data = Meja::where('id', $id)->first();
-        $data->status = 0;
-        $data->save();
-        return redirect()->route('reservation.index');
+        //
     }
 
     /**
@@ -77,10 +75,7 @@ class ReservationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Meja::where('id', $id)->first();
-        $data->status = 0;
-        $data->save();
-        return redirect()->route('reservation.index');
+        //
     }
 
     /**
@@ -91,6 +86,10 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo $id;
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['status' => 0]);
+        return redirect()->route('reservation.index');
     }
 }

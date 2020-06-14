@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="{{ asset('image/favicon.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('image/apple-touch-icon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">    
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <style>
         .checked {

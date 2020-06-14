@@ -32,7 +32,12 @@
                         <div class="form-group">
                             <label for="stok"><b>Stok</b></label>
                             <input type="number" class="form-control" id="stok"
-                            name="stok">
+                            name="stok" style="width: 6em">
+                        </div>
+                        <div class="form-group">
+                            <label for="satuan"><b>Satuan</b></label>
+                            <input type="text" name="satuan" id="satuan" 
+                            class="form-control" maxlength="10">
                         </div>
                     </div>
 

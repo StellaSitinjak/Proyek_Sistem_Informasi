@@ -71,6 +71,7 @@
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label"><b>Password</b></label>
                                     <input id="password" type="password" class="form-control" name="password" required>
+                                    <p style="color:red">* Panjang minimum password adalah 6</p>
                                     @if ($errors->has('password'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('password') }}</strong>

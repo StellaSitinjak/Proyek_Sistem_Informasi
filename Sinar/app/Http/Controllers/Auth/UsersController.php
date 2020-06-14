@@ -25,6 +25,11 @@ class UsersController extends Controller
     }
     
     public function register(Request $request){
+        $data = User::where('email', $request->email)->get();
+        if($data){
+            return redirect('login')->with('message','Email telah digunakan sebelumnya!');
+        }
+
         $tableC = new Customer();
         
         $tableC->nama = $request->name;
@@ -43,10 +48,15 @@ class UsersController extends Controller
         $input_data=$request->all();
         $input_data['password']=Hash::make($input_data['password']);
         User::create($input_data);
-        return view('Auth.login');
+        return redirect('/login')->with('alert-success','Kamu berhasil Register');
     }
 
     public function postWorker(Request $request){
+        $data = Pegawai::where('email', $request->email)->get();
+        if($data){
+            return redirect('login')->with('message','Email telah digunakan sebelumnya!');
+        }
+
         $tableP = new Pegawai();
         
         $tableP->nama = $request->name;
@@ -66,7 +76,7 @@ class UsersController extends Controller
         $input_data['password'] = Hash::make($input_data['password']);
         User::create($input_data);
 
-        return redirect('login')->with('alert-success','Kamu berhasil Register');
+        return redirect('/register-pegawai')->with('alert-success','Pegawai berhasil di Register');
     }
 
     public function login(Request $request){
@@ -77,17 +87,27 @@ class UsersController extends Controller
             if($dataP){
                 Session::put('role',$dataP->jabatan);
                 Session::put('nama',$dataP->nama);
-            } elseif ($input_data['email'] != "admin@gmail.com") {
+                Session::put('login',TRUE);
+                if($dataP->jabatan == "Kasir"){
+                    return redirect('/billing');
+                } else {
+                    return redirect('/stok');
+                }
+            }
+            if ($input_data['email'] != "admin@gmail.com" && !$dataP) {
                 $data = Customer::where('email',$input_data['email'])->first();
                 $data->visited++;
                 $data->save();
                 Session::put('nama',$data->nama);
+                Session::put('id',$data->id);
+                Session::put('login',TRUE);
+                return redirect('/');
             }
             Session::put('login',TRUE);
-            return redirect('/');
+            return redirect('/menu');
         }else{
             return back()->with('message','Account is not Valid!');
-            echo 0;
+            // echo 0;
         }
     }
     

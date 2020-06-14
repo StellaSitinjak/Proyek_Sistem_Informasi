@@ -12,7 +12,7 @@
 							<h1 class="m-b-20"><strong>Welcome To Rumah Makan <br> Sinar Minang Balige</strong></h1>
 							<p class="m-b-40">Anda puas beritahu teman, Anda tidak puas beritahu kami<br> 
 							</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.html">Reservation</a></p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/booking">Reservation</a></p>
 						</div>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 							<h1 class="m-b-20"><strong>Welcome To Rumah Makan  <br> Sinar Minang Balige</strong></h1>
 							<p class="m-b-40">Anda puas beritahu teman, Anda tidak puas beritahu kami  <br> 
 							</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/booking">Reservation</a></p>
 						</div>
 					</div>
 				</div>
@@ -38,7 +38,7 @@
 							<h1 class="m-b-20"><strong>Welcome To Rumah Makan<br>  Sinar Minang Balige</strong></h1>
 							<p class="m-b-40">Anda puas beritahu teman, Anda tidak puas beritahu kami <br> 
 							</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/booking">Reservation</a></p>
 						</div>
 					</div>
 				</div>

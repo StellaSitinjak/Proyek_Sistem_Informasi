@@ -24,21 +24,23 @@ CREATE TABLE `bahan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `stok` int(255) NOT NULL,
   `nama` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `satuan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `bahan` */
 
-insert  into `bahan`(`id`,`stok`,`nama`,`created_at`,`updated_at`) values 
-(1,23,'Banana',NULL,'2020-05-25 09:53:38'),
-(2,12,'Apple',NULL,NULL),
-(3,2,'Grape',NULL,NULL),
-(4,6,'Melon',NULL,NULL),
-(5,9,'Watermelon',NULL,NULL),
-(6,13,'Papaya',NULL,NULL),
-(7,22,'Nasi','2020-05-25 09:56:57','2020-05-25 10:17:03');
+insert  into `bahan`(`id`,`stok`,`nama`,`satuan`,`created_at`,`updated_at`) values 
+(1,21,'Banana','buah',NULL,'2020-06-13 04:45:42'),
+(2,12,'Apple','buah',NULL,NULL),
+(3,2,'Grape','buah',NULL,NULL),
+(4,6,'Melon','buah',NULL,NULL),
+(5,9,'Watermelon','buah',NULL,NULL),
+(6,13,'Papaya','buah',NULL,NULL),
+(7,22,'Nasi','kg','2020-05-25 09:56:57','2020-05-25 10:17:03'),
+(8,5,'Ayam','kg','2020-06-13 06:28:07','2020-06-13 06:28:07');
 
 /*Table structure for table `customer` */
 
@@ -58,14 +60,15 @@ CREATE TABLE `customer` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `customer_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `customer` */
 
 insert  into `customer`(`id`,`nama`,`alamat`,`birthdate`,`gender`,`email`,`noHP`,`visited`,`remember_token`,`created_at`,`updated_at`) values 
 (1,'Stella','Rumah','2000-05-12','P','stella@gmail.com','085359198820',1,NULL,'2020-05-21 14:53:25','2020-05-21 14:53:25'),
-(10,'Rim','Rumah','2020-06-05','P','lala@gmail.com','085359198820',0,NULL,'2020-06-11 06:45:16','2020-06-11 06:45:16'),
-(17,'Tire','Rmh','2020-04-30','P','tire@gmail.com','085359198820',4,NULL,'2020-06-11 13:36:00','2020-06-11 17:34:12');
+(17,'Tire','Rmh','2020-04-30','P','tire@gmail.com','085359198820',14,NULL,'2020-06-11 13:36:00','2020-06-14 06:44:11'),
+(18,'Chain','lala','2020-05-01','L','try@gmail.com','lallalala',0,NULL,'2020-06-13 04:32:33','2020-06-13 04:32:33'),
+(20,'Chain','lala','2020-05-01','L','chain@gmail.com','lallalala',0,NULL,'2020-06-13 04:33:00','2020-06-13 04:33:00');
 
 /*Table structure for table `laporan` */
 
@@ -92,19 +95,20 @@ CREATE TABLE `meja` (
   `id` int(11) NOT NULL,
   `kapasitas` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL,
+  `booking` datetime DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `meja` */
 
-insert  into `meja`(`id`,`kapasitas`,`status`,`created_at`,`updated_at`) values 
-(1,'4',1,NULL,NULL),
-(2,'4',1,NULL,NULL),
-(3,'4',1,NULL,NULL),
-(4,'4',0,NULL,'2020-05-23 06:11:23'),
-(5,'6',0,NULL,'2020-05-22 15:53:44'),
-(6,'8',0,NULL,NULL);
+insert  into `meja`(`id`,`kapasitas`,`status`,`booking`,`created_at`,`updated_at`) values 
+(1,'4',1,NULL,NULL,NULL),
+(2,'4',1,NULL,NULL,NULL),
+(3,'4',1,'2020-06-13 20:19:00',NULL,'2020-06-13 13:19:26'),
+(4,'4',1,NULL,NULL,'2020-06-14 07:30:26'),
+(5,'6',0,NULL,NULL,'2020-06-13 06:48:02'),
+(6,'8',0,NULL,NULL,'2020-06-13 06:48:49');
 
 /*Table structure for table `menu` */
 
@@ -127,7 +131,7 @@ CREATE TABLE `menu` (
 /*Data for the table `menu` */
 
 insert  into `menu`(`id`,`nama`,`harga`,`jenis`,`promo`,`resep`,`file`,`rating`,`created_at`,`updated_at`) values 
-(1,'Rendang Khas Padang','36000','Makanan',10.00,'admin\r\nmengelola menu promosi/diskon				\r\nmengelola keuangan: pemasukan & pengeluaran		\r\n\r\ninventory/chef\r\nmengelola stok\r\nmengelola resep/menu\r\n\r\ncustomer\r\nmemberi rating\r\nmemesan makanan\r\nmemesan meja\r\n\r\n	kasir\r\nmengelola keuangan: pemasukan & pengeluaran\r\nmengelola meja yang tersedia\r\n\r\nregister\r\nmelihat menu yg paling sering dipesan\r\nmelihat menu yg jarang dipesan','image/img-01.jpg',5,NULL,'2020-05-25 13:03:10'),
+(1,'Rendang','36000','Makanan',10.00,'admin\r\nmengelola menu promosi/diskon				\r\nmengelola keuangan: pemasukan & pengeluaran		\r\n\r\ninventory/chef\r\nmengelola stok\r\nmengelola resep/menu\r\n\r\ncustomer\r\nmemberi rating\r\nmemesan makanan\r\nmemesan meja\r\n\r\n	masukkan daging\r\nmengelola keuangan: pemasukan & pengeluaran\r\nmengelola meja yang tersedia\r\n\r\nregister\r\nmelihat menu yg paling sering dipesan\r\nmelihat menu yg jarang dipesan','image/img-01.jpg',5,NULL,'2020-06-13 06:30:35'),
 (2,'Sate Padang','18000','Makanan',0.00,'','image/img-02.jpg',4,NULL,NULL),
 (3,'Nasi Campur Padang','25000','Makanan',2.00,'','image/menu-3.jpg',4,NULL,'2020-05-21 14:54:09'),
 (4,'Ikan Bakar Bumbu','24000','Makanan',0.00,'','image/menu-4.jpg',4,NULL,NULL),
@@ -183,12 +187,13 @@ CREATE TABLE `pegawai` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pegawai_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `pegawai` */
 
 insert  into `pegawai`(`id`,`nama`,`alamat`,`birthdate`,`gender`,`email`,`noHP`,`jabatan`,`remember_token`,`created_at`,`updated_at`) values 
-(1,'Frame','Kantor','2020-04-03','L','frame@gmail.com','085359198820','Kasir',NULL,'2020-06-11 18:01:44','2020-06-11 18:01:44');
+(2,'Frame','Kantor','2020-04-30','L','frame@gmail.com','085359198820','Kasir',NULL,'2020-06-12 09:03:04','2020-06-12 09:03:04'),
+(3,'Lala','Office','2020-05-09','P','lala@gmail.com','085359198820','Inventory/Chef',NULL,'2020-06-12 09:08:08','2020-06-12 09:08:08');
 
 /*Table structure for table `pesanan` */
 
@@ -196,15 +201,27 @@ DROP TABLE IF EXISTS `pesanan`;
 
 CREATE TABLE `pesanan` (
   `pesananID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(10) NOT NULL,
   `menuID` int(11) NOT NULL,
   `mejaID` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
+  `jumlah` int(10) NOT NULL,
+  `status` tinyint(4) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`pesananID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `pesanan` */
+
+insert  into `pesanan`(`pesananID`,`userID`,`menuID`,`mejaID`,`jumlah`,`status`,`created_at`,`updated_at`) values 
+(1,17,2,1,2,0,NULL,NULL),
+(4,17,1,1,2,0,NULL,'2020-06-12 12:45:41'),
+(13,1,1,2,1,0,NULL,NULL),
+(14,17,3,1,1,1,NULL,NULL),
+(15,17,3,1,1,0,'2020-06-13 04:16:18','2020-06-13 04:16:18'),
+(16,17,4,1,1,0,'2020-06-13 04:25:16','2020-06-13 04:25:16'),
+(17,17,1,1,1,0,'2020-06-13 06:42:00','2020-06-13 06:42:00'),
+(18,17,0,3,0,0,'2020-06-13 13:14:47','2020-06-13 13:14:47');
 
 /*Table structure for table `users` */
 
@@ -223,11 +240,12 @@ CREATE TABLE `users` (
 
 insert  into `users`(`email`,`password`,`remember_token`,`created_at`,`updated_at`) values 
 ('admin@gmail.com','$2y$10$PYWsKzaLMaxXD0crQPRSfeDOZ/D0fABKf12Q8RcQ8RhfijnzikCW.',NULL,'2020-06-11 15:37:16','2020-06-11 15:37:16'),
-('frame@gmail.com','$2y$10$3jEfoTKCAJZ4jYOFaymO1e.BU5MLRetu8l7MEK/CO/v7wAx0JEX8.',NULL,'2020-06-11 18:01:46','2020-06-11 18:01:46'),
-('lala@gmail.com','$2y$10$jJqrm1TcEknGJq6ReueDtuvS8t2KdSdEJ9UL7vYIrZ34HnW9NNUIy',NULL,'2020-06-11 06:45:17','2020-06-11 06:45:17'),
+('chain@gmail.com','$2y$10$zI3TbEZ3AMUU4ZRJX5T2u.Z7gKqE5R7.v6DnEH79TD3REpEEX3k0C',NULL,'2020-06-13 04:33:00','2020-06-13 04:33:00'),
+('frame@gmail.com','$2y$10$g967jrFUiKDyS4jVJvFCMOBSJXStfyMVrrdMIBeKYsVMu0pbkdVUy',NULL,'2020-06-12 09:03:05','2020-06-12 09:03:05'),
+('lala@gmail.com','$2y$10$gUCjhox.c2egpsfk6vSEAe9hiXcVrTjRtPKTFClbjZd.HcYU0HMbG',NULL,'2020-06-12 09:08:08','2020-06-12 09:08:08'),
 ('stella@gmail.com','$2y$10$eAGuoZjMg0k6/nHRU5tq1eEeV6aXMvcEmrkr6hLDGAv9OhphTmkxa',NULL,'2020-05-21 14:53:26','2020-05-21 14:53:26'),
 ('tire@gmail.com','$2y$10$kcJpYr08Y6l/rFBufXqRwuJp0K5biO5Vi0Ts2KKRoO436.y36XBpK',NULL,'2020-06-11 13:36:01','2020-06-11 13:36:01'),
-('try@gmail.com','$2y$10$9XSiWGE93HeA8kgibHZQkeS4p05Jg1onVQ/SpyeKbQM5qL6gIFLvC',NULL,'2020-06-11 10:39:55','2020-06-11 10:39:55');
+('try@gmail.com','$2y$10$fPtH3vcPdo/Gvx9USgGvjOIv8D7AJtern1icP57O6v4Ft2MF.9Mv.',NULL,'2020-06-13 04:32:35','2020-06-13 04:32:35');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -40,6 +40,7 @@ class StokController extends Controller
         $data = new Bahan();
         $data->nama = $request->nama;
         $data->stok = $request->stok;
+        $data->satuan = $request->satuan;
         $data->save();
         return redirect()->route('stok.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
@@ -79,6 +80,7 @@ class StokController extends Controller
         $data = Bahan::where('id',$id)->first();
         $data->nama = $request->nama;
         $data->stok = $request->stok;
+        $data->satuan = $request->satuan;
         $data->save();
         return redirect()->route('stok.index', $id)->with('alert-success','Data berhasil diubah!');
     }

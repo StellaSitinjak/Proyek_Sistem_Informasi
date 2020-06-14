@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pesanan extends Model
 {
-    protected $tableP = 'pesanan';
+    protected $table = 'pesanan';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'tanggal',
+        'pesananID', 'userID', 'menuID', 'mejaID', 'jumlah',
     ];
 
     public function menu()

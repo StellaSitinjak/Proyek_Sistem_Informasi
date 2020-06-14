@@ -2,11 +2,7 @@
 Auth::routes();
 Route::get('/', 'ContentsController@index');
 Route::get('/home', 'Auth\UsersController@index');
-
-Route::get('/menu', 'MenuController@index');
-Route::get('/pesan', 'MenuController@pesan');
-Route::get('/rating/{id}', 'Customer\RatingController@rating');
-Route::get('/ratingPost', 'Customer\RatingController@ratingPost');
+Route::resource('menu','MenuController');
 
 Route::get('/login', 'Auth\UsersController@login_index');
 Route::get('/register', 'Auth\UsersController@register_index');
@@ -17,9 +13,16 @@ Route::post('/loginPost', 'Auth\UsersController@login');
 Route::get('/logout', 'Auth\UsersController@logout');
 
 Route::resource('promo','Admin\PromoController');
+
 Route::resource('reservation','Kasir\ReservationController');
+Route::resource('billing','Kasir\BillingController');
+
 Route::resource('resep','InventoryChef\ResepController');
 Route::resource('stok','InventoryChef\StokController');
+
+Route::resource('cart','Customer\CartController');
+Route::resource('rating','Customer\RatingController');
+Route::resource('booking','Customer\BookingController');
 
 Route::get('/gallery', function () {
     return view('gallery');

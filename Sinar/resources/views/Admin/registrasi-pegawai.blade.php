@@ -11,6 +11,16 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="col-md-10 offset-md-1">
+            @if(\Session::has('alert'))
+                <div class="alert alert-danger">
+                    <div>{{Session::get('alert')}}</div>
+                </div>
+            @endif
+            @if(\Session::has('alert-success'))
+                <div class="alert alert-success">
+                    <div>{{Session::get('alert-success')}}</div>
+                </div>
+            @endif
                 <form class="form-horizontal" method="POST" action="/registerPost-pegawai">
                     {{ csrf_field() }}
 
